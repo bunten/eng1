@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My English Word Book</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>My English Word Book</h1>
+        <p>自分だけの英単語帳を作ろう！</p>
+    </header>
+
+    <main>
+
+        <!-- 学習状況 -->
+        <section class="summary">
+            <div class="summary-card">
+                <h2 id="totalCount">0</h2>
+                <p>登録した単語</p>
+            </div>
+
+            <div class="summary-card">
+                <h2 id="categoryCount">0</h2>
+                <p>使用中の分類</p>
+            </div>
+        </section>
+
+        <!-- 単語登録 -->
+        <section class="panel">
+
+            <h2>単語を登録する</h2>
+
+            <label for="category">分類</label>
+
+            <select id="category">
+                <option value="小学生">小学生</option>
+                <option value="中学1年">中学1年</option>
+                <option value="中学2年">中学2年</option>
+                <option value="中学3年">中学3年</option>
+                <option value="英検">英検</option>
+            </select>
+
+            <label for="english">英単語</label>
+
+            <input
+                type="text"
+                id="english"
+                placeholder="例：apple"
+            >
+
+            <label for="japanese">日本語の意味</label>
+
+            <input
+                type="text"
+                id="japanese"
+                placeholder="例：りんご"
+            >
+
+            <label for="example">例文（省略可）</label>
+
+            <input
+                type="text"
+                id="example"
+                placeholder="例：I like apples."
+            >
+
+            <button id="saveButton" onclick="saveWord()">
+                単語を登録する
+            </button>
+
+            <p id="message"></p>
+
+        </section>
+
+        <!-- 単語一覧 -->
+        <section class="panel">
+
+            <h2>登録した単語</h2>
+
+            <label for="filterCategory">分類で絞り込む</label>
+
+            <select id="filterCategory" onchange="showWords()">
+                <option value="すべて">すべて</option>
+                <option value="小学生">小学生</option>
+                <option value="中学1年">中学1年</option>
+                <option value="中学2年">中学2年</option>
+                <option value="中学3年">中学3年</option>
+                <option value="英検">英検</option>
+            </select>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="英単語・日本語で検索"
+                oninput="showWords()"
+            >
+
+            <div id="wordList"></div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>My English Word Book</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
